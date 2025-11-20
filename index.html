@@ -3,136 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Julian Antonio — Profile</title>
-  <meta name="description" content="Personal profile page for Julian Antonio — student, web developer, and problem solver." />
-  <meta name="author" content="Julian Antonio" />
+  <title>Biodata — Julian Antonio</title>
+  <meta name="description" content="Biographical data / resume page for Julian Antonio." />
   <style>
     :root{
-      --bg:#0b1220; --card:#071226; --accent:#7c3aed; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
-      --radius:14px; --maxw:900px;
-      font-synthesis: none;
+      --bg:#f5f7fb; --card:#fff; --accent:#2b6ef6; --muted:#6b7280;
+      --radius:10px; --maxw:760px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
-      margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#041026 0%, #07122a 60%);
-      color: #e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex; align-items:center; justify-content:center; padding:28px;
+      margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:var(--bg); color:#0f1724; padding:28px; display:flex; justify-content:center;
     }
-
-    .wrap{width:100%; max-width:var(--maxw); margin:0 auto;}
-    .card{
-      background: linear-gradient(180deg, rgba(10,16,28,0.8), rgba(6,10,16,0.6));
-      border-radius: calc(var(--radius) + 2px);
-      padding:22px; display:grid; grid-template-columns:180px 1fr; gap:20px;
-      box-shadow: 0 8px 40px rgba(2,6,23,0.6); align-items:start;
-      border:1px solid rgba(255,255,255,0.03);
+    .container{width:100%;max-width:var(--maxw)}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:0 8px 30px rgba(15,23,42,0.06);}
+    .row{display:flex;gap:18px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:36px;flex-shrink:0}
+    h1{margin:0;font-size:20px}
+    .subtitle{color:var(--muted);margin-top:4px;font-size:14px}
+    .section{margin-top:18px}
+    table{width:100%;border-collapse:collapse}
+    td{padding:8px 6px;vertical-align:top}
+    td.label{width:160px;color:var(--muted);font-weight:600}
+    ul{margin:6px 0 0 18px;padding:0}
+    a.link{color:var(--accent);text-decoration:none}
+    .small{font-size:13px;color:var(--muted)}
+    @media(max-width:600px){
+      .row{flex-direction:column; text-align:center}
+      td.label{width:120px}
     }
-
-    .avatar{
-      width:160px;height:160px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-      background: linear-gradient(135deg,var(--accent),#06b6d4); font-weight:700;font-size:40px;color:white;
-      box-shadow: 0 6px 18px rgba(124,58,237,0.14);
-      flex-shrink:0;
-    }
-    .avatar img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
-
-    h1{margin:0;font-size:28px;letter-spacing:-0.2px}
-    .role{color:var(--accent);margin-top:6px;font-weight:700}
-    .bio{color:var(--muted);margin-top:12px;line-height:1.5}
-    .links{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);
-          font-size:14px;color:var(--muted);text-decoration:none}
-    .pill:focus{outline:2px solid rgba(124,58,237,0.34);outline-offset:2px}
-
-    .stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-    .stat{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px 12px;border-radius:10px;text-align:center;min-width:92px}
-    .stat strong{display:block;font-size:18px}
-
-    .section{margin-top:22px;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.03)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-    .card2{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
-    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-
-    /* small screens */
-    @media(max-width:720px){
-      .card{grid-template-columns:1fr;text-align:center}
-      .avatar{margin:0 auto}
-      .links{justify-content:center}
-    }
-
-    /* small helpers */
-    .hidden-sr{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
   </style>
 </head>
 <body>
-  <main class="wrap" role="main" aria-labelledby="profile-heading">
-    <article class="card" aria-label="Profile card">
-      <!-- Avatar: replace inner SVG with <img src="your-photo.jpg" alt="Your Name"> if you want -->
-      <div>
-        <div class="avatar" aria-hidden="true">
-          <!-- simple inline SVG avatar -->
-          <svg width="140" height="140" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <defs>
-              <linearGradient id="g" x1="0" x2="1">
-                <stop offset="0" stop-color="#7c3aed"/>
-                <stop offset="1" stop-color="#06b6d4"/>
-              </linearGradient>
-            </defs>
-            <rect rx="12" width="120" height="120" fill="url(#g)"/>
-            <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="44" fill="#fff" font-weight="700">JA</text>
-          </svg>
+  <main class="container" role="main">
+    <article class="card" aria-label="Biodata card">
+      <div class="row">
+        <div class="avatar" aria-hidden="true">JA</div>
+        <div style="flex:1">
+          <h1>Julian Antonio</h1>
+          <div class="subtitle">Student • IT Major</div>
+          <div class="small" style="margin-top:8px">Location: Philippines · Available for internships</div>
         </div>
       </div>
 
-      <div>
-        <h1 id="profile-heading">Julian Antonio</h1>
-        <div class="role">Student · Web Developer · Problem Solver</div>
+      <section class="section" aria-labelledby="personal-heading">
+        <h2 id="personal-heading" style="margin:0;font-size:16px">Personal Information</h2>
+        <table style="margin-top:8px">
+          <tr><td class="label">Full name</td><td>Julian Antonio</td></tr>
+          <tr><td class="label">Date of birth</td><td>July 28, 2006</td></tr>
+          <tr><td class="label">Gender</td><td>Male</td></tr>
+          <tr><td class="label">Nationality</td><td>Filipino</td></tr>
+          <tr><td class="label">Address</td><td>Meohao, Kidapawan City</td></tr>
+          <tr><td class="label">Phone</td><td>+63 9XX XXX XXXX</td></tr>
+          <tr><td class="label">Email</td><td><a class="link" href="mailto:jpantonio@ndkc.edu.ph">jpantonio@ndkc.edu.ph</a></td></tr>
+        </table>
+      </section>
 
-        <p class="bio">Hi — I build clean, maintainable web apps and help classmates learn programming. I enjoy turning messy requirements into elegant UI and readable backend code.</p>
+      <section class="section" aria-labelledby="education-heading">
+        <h2 id="education-heading" style="margin:0;font-size:16px">Education</h2>
+        <table style="margin-top:8px">
+          <tr><td class="label">2021 - 2025</td><td>Bachelor of Science in Information Technology — Example University</td></tr>
+          <tr><td class="label">2017 - 2021</td><td>Ginatilan National High School</td></tr>
+        </table>
+      </section>
 
-        <nav class="links" aria-label="Social links">
-          <a class="pill" href="https://github.com/USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="pill" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="pill" href="mailto:your.email@example.com">Email</a>
-          <a class="pill" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
-        </nav>
+      <section class="section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" style="margin:0;font-size:16px">Skills</h2>
+        <ul style="margin-top:8px">
+          <li>Programming: Java, PHP, JavaScript</li>
+          <li>Web: HTML, CSS, Bootstrap, Responsive Design</li>
+          <li>Databases: MySQL</li>
+          <li>Tools: Git, VS Code, XAMPP</li>
+        </ul>
+      </section>
 
-        <div class="stats" role="list" aria-label="Profile statistics">
-          <div class="stat" role="listitem"><strong>5+</strong><span style="color:var(--muted);font-size:12px">Projects</span></div>
-          <div class="stat" role="listitem"><strong>3</strong><span style="color:var(--muted);font-size:12px">Languages</span></div>
-          <div class="stat" role="listitem"><strong>2</strong><span style="color:var(--muted);font-size:12px">Certs</span></div>
+      <section class="section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading" style="margin:0;font-size:16px">Experience</h2>
+        <div style="margin-top:8px">
+          <strong>Junior Web Developer (Intern)</strong> — <span class="small">Company Name, 2024</span>
+          <p class="small" style="margin:6px 0 0">Built and maintained small web apps, assisted with database integration and debugging.</p>
         </div>
+      </section>
 
-        <section class="section" aria-labelledby="about-heading">
-          <h2 id="about-heading" style="margin:0;font-size:18px">About</h2>
-          <p class="bio">I focus on Java, PHP, and JavaScript — building full-stack apps that are easy to maintain. Passionate about teaching and documentation.</p>
-        </section>
+      <section class="section" aria-labelledby="references-heading">
+        <h2 id="references-heading" style="margin:0;font-size:16px">References</h2>
+        <p class="small" style="margin-top:8px">Available upon request.</p>
+      </section>
 
-        <section class="section" aria-labelledby="skills-heading">
-          <h2 id="skills-heading" style="margin:0;font-size:18px">Skills</h2>
-          <div class="grid" style="margin-top:10px">
-            <div class="card2"><strong>Frontend</strong><div class="bio" style="margin-top:6px">HTML · CSS · JavaScript</div></div>
-            <div class="card2"><strong>Backend</strong><div class="bio" style="margin-top:6px">PHP · Node.js · MySQL</div></div>
-            <div class="card2"><strong>Tools</strong><div class="bio" style="margin-top:6px">Git · VS Code · XAMPP</div></div>
-          </div>
-        </section>
-
-        <section class="section" aria-labelledby="contact-heading">
-          <h2 id="contact-heading" style="margin:0;font-size:18px">Contact</h2>
-          <p class="bio">Interested in collaborating? Email me at <a href="mailto:your.email@example.com" style="color:inherit;text-decoration:underline">your.email@example.com</a>.</p>
-          <p class="bio" style="margin-top:8px">This is a static single-file page — edit the text and links in the file to personalize it.</p>
-        </section>
-
-        <footer style="margin-top:16px">
-          <small style="color:var(--muted)">Built with ♥ • Save as <code>index.html</code> and deploy to Vercel / Netlify / GitHub Pages.</small>
-        </footer>
-      </div>
+      <section class="section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" style="margin:0;font-size:16px">Contact / Links</h2>
+        <p class="small" style="margin-top:8px">
+          GitHub: <a class="link" href="https://github.com/USERNAME" target="_blank" rel="noopener noreferrer">github.com/USERNAME</a><br>
+          LinkedIn: <a class="link" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener noreferrer">linkedin.com/in/USERNAME</a>
+        </p>
+      </section>
     </article>
   </main>
-
-  <!-- small JS to show a friendly notice if JS is disabled -->
-  <noscript><div style="position:fixed;left:0;right:0;top:0;background:#c2410c;color:#fff;padding:8px;text-align:center">This page works without JavaScript — enabling JS provides small UX improvements.</div></noscript>
 </body>
 </html>
